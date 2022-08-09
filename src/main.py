@@ -21,12 +21,13 @@ from extras import restore
 def config():
     os.system('cls')
     time.sleep(1)
-    if(os.path.exists('./config/')):
+    if(os.path.exists('./src/config/')):
         print('Config Dir Existing')
-        if(os.path.exists('./config/general.conf')):
+        print('\n')
+        if(os.path.exists('./src/config/general.conf') & os.path.exists('./src/custom/main.ius')):
             start_process()
         else:
-            print('Root Config File is Corrupted or Non Existant!')
+            print('Root Config File or Root main.ius is Corrupted or Non Existant!')
             print('Code Error: ' + str(errors.error_list[0])) #Code Error = #rcfcne423 [Check Documentation for more info!]
             print('\n')
             print('Use Restorer.py for restoring all data!')
@@ -39,17 +40,41 @@ def config():
                 print('Thanks for using Is-Usb-Safe!')
                 exit()
     else:
-        path = os.mkdir('./config/')
-        logs = os.mkdir('./logs/')
+        path = os.mkdir('./src/config/')
+        logs = os.mkdir('./src/logs/')
+        custom = os.mkdir('./src/custom/')
         print('Config Path has been created successfuly!')
-        conf_path = './config/'
-        logs_path = './logs/'
-        file_names = ['general.conf', 'log.txt']
+        conf_path = './src/config/'
+        logs_path = './src/logs/'
+        customs_path = './src/custom/'
+
+        """
+        <--GALION CONNECTION SERVERS-->
+            req_key: "REQUEST_KEY"
+            username: "USERNAME"
+            password: "PASSWORD"
+            galion_proxy: "PROXY_NAME"
+            using_vpn: FALSE
+        <--GALION CONNECTION SERVERS-->
+        """
+
+        verif_data_structure = "<--GALION CONNECTION SERVERS-->" + '\n' + 'req_key: "REQUEST_KEY"' + '\n' + "<--GALION CONNECTION SERVERS-->"
+        basic_log_structure = "[DATE] - Log || Code: #code"
+
+        file_names = ['general.conf', 'log.txt', 'verif.ius', 'main.ius']
         with open(os.path.join(conf_path, file_names[0]), 'w') as file:
             pass
         with open(os.path.join(logs_path, file_names[1]), 'w') as log_file:
-            log_file.write("[" + str(datetime.datetime.now()) + str(datetime.datetime.hour()) + ":" + str(datetime.datetime.minute) + ":" + str(datetime.datetime.second()) + "]" + " - Log File Was Created!")
-
+            log_file.write(basic_log_structure)
+            log_file.close()
+        with open(os.path.join(customs_path, file_names[2]), 'w') as verif_file:
+            verif_file.write(verif_data_structure)
+            verif_file.close()
+        with open(os.path.join(customs_path, file_names[3]), 'w') as main_file:
+            main_file.write("Author: GalionSec" + '\n' + "Version: 1.0.0" + '\n' + "Key: KEY_GOES HERE")
+            main_file.close()
+        os.system('cls')
+        os.system('python ./src/main.py')
         
 def start_process():
     print('Process Started!')
