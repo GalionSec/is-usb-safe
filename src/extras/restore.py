@@ -23,16 +23,18 @@ def start():
             os.remove('./logs/log.txt')
             os.rmdir('./logs/')
             time.sleep(0.5)
-            print("Files Restoring Successful!")
+            print("Config Files Restored!")
             print("Logs Restored!")
             time.sleep(1)
-            print('To continue restoring process execute again the .exe or .py')
+            print('Re-Executing IsUsbSafe! (This will create all important files again)')
             print('.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.')
             time.sleep(2)
             os.system('python main.py')
             break
         elif(option == 2):
             print("Option " + option + " was Selected")
+            time.sleep(1)
+            print('Connecting with GitHub Repository')
             break
         elif(option == 3):
             print("Option " + option + " was Selected")
