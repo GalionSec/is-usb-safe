@@ -77,7 +77,20 @@ def config():
         os.system('python ./src/main.py')
         
 def start_process():
-    print('Process Started!')
+    os.system('cls')
+    time.sleep(1)
+    print("You wan't to gran't access to IsUsbSafe Admin Privileges?")
+    admin_priv_opt = input("[YES/NO]: ")
+
+    if(admin_priv_opt == "y"):
+        print("")
+    elif(admin_priv_opt == "n"):
+        print("Privileges are needed to use the tool!")
+        print("Error Code: " + errors.error_list[1])
+        print('\n')
+        print("Exiting the tool...")
+        time.sleep(3)
+        exit()
 
 
 config()
