@@ -6,6 +6,9 @@ import time
 from urllib import request
 import wget
 
+#Relases URL
+rel_url = "https://galionsec.github.io/is-usb-safe/download/releases/?v=latest"
+
 def start():
     print("Welcome to IsUsbSafe Restore Tool!")
     print("==================================")
@@ -46,4 +49,17 @@ def start():
             time.sleep(0.5)
             print('Connection to GalionSec Servers [PENDING VERIFICATION]')
             time.sleep(1)
-            print('Checking if verif.ius coincides with ')
+            print('Checking if verif.ius coincides with SERVER_CONNECTION_TOKENS')
+            time.sleep(1)
+            print("Connecting to: " + rel_url)
+        elif(option == 3):
+            if(os.path.exists('./src/chache/')):
+                print("Clear Cache")
+                break
+            else:
+                print("Cache Folder and Files are Unexistant!")
+                print("Returning to the tool!")
+                time.sleep(1)
+                os.system('cls')
+                os.system('python ./src/main.py')
+                break

@@ -1,6 +1,6 @@
 # Is-Usb-Safe
 """
-    Author: GalionSec
+    Author: GalionSec [usr:GXFAnFg]
     Ver: 1.0.0
     Creation Date: 2022-09-08 [Using DMY Date Type]
     Documentation: https://galionsec.github.io/wiki/article/isusbsafe/?page=welcome
@@ -16,6 +16,7 @@ import time
 import datetime
 from extras import errors
 from extras import restore
+from extras import logger
 
 #Config File Search
 def config():
@@ -59,13 +60,13 @@ def config():
         """
 
         verif_data_structure = "<--GALION CONNECTION SERVERS-->" + '\n' + 'req_key: "REQUEST_KEY"' + '\n' + "<--GALION CONNECTION SERVERS-->"
-        basic_log_structure = "[DATE] - Log || Code: #code"
+        basic_log_structure = "[" + str(datetime.datetime.now().year) + " - " + str(datetime.datetime.now().month) + " - " + str(datetime.datetime.now().day) + "|| " + str(datetime.datetime.now().hour) + ":" + str(datetime.datetime.now().minute) + ":" + str(datetime.datetime.now().second) + "] - "
 
         file_names = ['general.conf', 'log.txt', 'verif.ius', 'main.ius']
         with open(os.path.join(conf_path, file_names[0]), 'w') as file:
             pass
         with open(os.path.join(logs_path, file_names[1]), 'w') as log_file:
-            log_file.write(basic_log_structure)
+            log_file.write(basic_log_structure + "Config Folder Created!" + '\n' + basic_log_structure + "Custom Folder Created!" + '\n' + basic_log_structure + "Logs Folder Created!")
             log_file.close()
         with open(os.path.join(customs_path, file_names[2]), 'w') as verif_file:
             verif_file.write(verif_data_structure)
@@ -83,7 +84,11 @@ def start_process():
     admin_priv_opt = input("[YES/NO]: ")
 
     if(admin_priv_opt == "y"):
-        print("")
+        os.chmod('./src/main.py', 1411)
+        print('main.py upgraded the Priviledge')
+        time.sleep(1)
+        logger.update_log(path='./src/logs/', logger_file_name='log.txt', encode='', content="User Priviledge's were Garanted!")
+        
     elif(admin_priv_opt == "n"):
         print("Privileges are needed to use the tool!")
         print("Error Code: " + errors.error_list[1])
