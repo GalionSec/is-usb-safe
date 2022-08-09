@@ -8,3 +8,4 @@ def update_log(path, logger_file_name, encode, content):
 
     with open(os.path.join(path, logger_file_name), 'a') as log_file:
         log_file.write('\n' + log_structure)
+        log_file.close()
