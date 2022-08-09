@@ -1,1 +1,0 @@
-# is-usb-safe

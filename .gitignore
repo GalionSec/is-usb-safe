@@ -1,4 +1,0 @@
-#Ignore Config Folders (This are created on Script execution so we can ignore it)
-src/config/*
-src/logs/*
-src/custom/*
