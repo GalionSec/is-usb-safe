@@ -1,9 +1,11 @@
 # Is-Usb-Safe
-"""
-    Author: GalionSec [usr:GXFAnFg]
-    Ver: 1.0.0
-    Creation Date: 2022-09-08 [Using DMY Date Type]
-    Documentation: https://galionsec.github.io/wiki/article/isusbsafe/?page=welcome
+intro = """
+Is-Usb-Safe
+
+Author: GalionSec [usr:GXFAnFg]
+Ver: 1.0.0
+Creation Date: 2022-09-08 [Using DMY Date Type]
+Documentation: https://galionsec.github.io/wiki/article/isusbsafe/?page=welcome
 """
 
 #Import modules that we need for the correct work of the code
@@ -21,7 +23,8 @@ from extras import logger
 #Config File Search
 def config():
     os.system('cls')
-    time.sleep(1)
+    print(intro)
+    time.sleep(3)
     if(os.path.exists('./src/config/')):
         print('Config Dir Existing')
         print('\n')
@@ -88,7 +91,21 @@ def start_process():
         print('main.py upgraded the Priviledge')
         time.sleep(1)
         logger.update_log(path='./src/logs/', logger_file_name='log.txt', encode='', content="User Priviledge's were Garanted!")
-        
+        is_usb_connected = False
+        while is_usb_connected == False:
+            print("Insert a USB or External Disk to Start the Process -")
+            time.sleep(0.3)
+            os.system('cls')
+            print("Insert a USB or External Disk to Start the Process \\")
+            time.sleep(0.3)
+            os.system('cls')
+            print("Insert a USB or External Disk to Start the Process |")
+            time.sleep(0.3)
+            os.system('cls')
+            print("Insert a USB or External Disk to Start the Process /")
+            time.sleep(0.3)
+            os.system('cls')
+
     elif(admin_priv_opt == "n"):
         print("Privileges are needed to use the tool!")
         print("Error Code: " + errors.error_list[1])
