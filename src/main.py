@@ -13,6 +13,7 @@ import random
 import hashlib
 import configparser
 import time
+import datetime
 from extras import errors
 from extras import restore
 
@@ -32,17 +33,22 @@ def config():
             go_to_restore = input('You want to execute Restorer.py right now? [y/n]: ')
             if(go_to_restore == "y"):
                 os.system('cls')
+                restore.start()
             elif(go_to_restore == "n"):
                 os.system('cls')
                 print('Thanks for using Is-Usb-Safe!')
                 exit()
     else:
         path = os.mkdir('./config/')
+        logs = os.mkdir('./logs/')
         print('Config Path has been created successfuly!')
         conf_path = './config/'
+        logs_path = './logs/'
         file_names = ['general.conf', 'log.txt']
         with open(os.path.join(conf_path, file_names[0]), 'w') as file:
             pass
+        with open(os.path.join(logs_path, file_names[1]), 'w') as log_file:
+            log_file.write("[" + str(datetime.datetime.now()) + str(datetime.datetime.hour()) + ":" + str(datetime.datetime.minute) + ":" + str(datetime.datetime.second()) + "]" + " - Log File Was Created!")
 
         
 def start_process():
