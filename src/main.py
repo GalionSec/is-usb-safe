@@ -24,7 +24,7 @@ from extras import logger
 def config():
     os.system('cls')
     print(intro)
-    time.sleep(3)
+    time.sleep(5)
     if(os.path.exists('./src/config/')):
         print('Config Dir Existing')
         print('\n')
@@ -83,36 +83,77 @@ def config():
 def start_process():
     os.system('cls')
     time.sleep(1)
-    print("You wan't to gran't access to IsUsbSafe Admin Privileges?")
-    admin_priv_opt = input("[YES/NO]: ")
+    while True:
+        print("You wan't to gran't access to IsUsbSafe Admin Privileges?")
+        admin_priv_opt = input("[YES/NO]: ")
 
-    if(admin_priv_opt == "y"):
-        os.chmod('./src/main.py', 1411)
-        print('main.py upgraded the Priviledge')
-        time.sleep(1)
-        logger.update_log(path='./src/logs/', logger_file_name='log.txt', encode='', content="User Priviledge's were Garanted!")
-        is_usb_connected = False
-        while is_usb_connected == False:
-            print("Insert a USB or External Disk to Start the Process -")
-            time.sleep(0.3)
+        if(admin_priv_opt == "y"):
+            os.chmod('./src/main.py', 1411)
+            print('main.py upgraded the Priviledge')
+            time.sleep(1)
+            logger.update_log(path='./src/logs/', logger_file_name='log.txt', encode='', content="User Priviledge's were Garanted!")
+            is_usb_connected = False
+            while is_usb_connected == False:
+                print("Insert a USB or External Disk to Start the Process -")
+                time.sleep(0.3)
+                os.system('cls')
+                print("Insert a USB or External Disk to Start the Process \\")
+                time.sleep(0.3)
+                os.system('cls')
+                print("Insert a USB or External Disk to Start the Process |")
+                time.sleep(0.3)
+                os.system('cls')
+                print("Insert a USB or External Disk to Start the Process /")
+                time.sleep(0.3)
+                os.system('cls')
+        elif(admin_priv_opt == "n"):
+            print("Privileges are needed to use the tool!")
+            print("Error Code: " + errors.error_list[1])
+            print('\n')
+            print("Exiting the tool...")
+            time.sleep(3)
+            exit()
+        elif(admin_priv_opt == "restore"):
+            print("Opening Recovery Tool!")
+            time.sleep(0.5)
             os.system('cls')
-            print("Insert a USB or External Disk to Start the Process \\")
-            time.sleep(0.3)
+            time.sleep(0.1)
+            for i in range(5):
+                print("L")
+                time.sleep(0.5)
+                os.system('cls')
+                print("LO")
+                time.sleep(0.5)
+                os.system('cls')
+                print("LOA")
+                time.sleep(0.5)
+                os.system('cls')
+                print("LOAD")
+                time.sleep(0.5)
+                os.system('cls')
+                print("LOADI")
+                time.sleep(0.5)
+                os.system('cls')
+                print("LOADIN")
+                time.sleep(0.5)
+                os.system('cls')
+                print("LOADING")
+                time.sleep(0.3)
+                os.system('cls')
+                print("LOADING.")
+                time.sleep(0.3)
+                os.system('cls')
+                print("LOADING..")
+                time.sleep(0.5)
+                print("LOADING...")
+                i = i + 1
+                time.sleep(0.5)
+                os.system('cls')
+                if(i == 5):
+                    restore.start()
+                    break
+        else:
             os.system('cls')
-            print("Insert a USB or External Disk to Start the Process |")
-            time.sleep(0.3)
-            os.system('cls')
-            print("Insert a USB or External Disk to Start the Process /")
-            time.sleep(0.3)
-            os.system('cls')
-
-    elif(admin_priv_opt == "n"):
-        print("Privileges are needed to use the tool!")
-        print("Error Code: " + errors.error_list[1])
-        print('\n')
-        print("Exiting the tool...")
-        time.sleep(3)
-        exit()
 
 
 config()

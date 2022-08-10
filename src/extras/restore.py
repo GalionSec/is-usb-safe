@@ -63,3 +63,24 @@ def start():
                 os.system('cls')
                 os.system('python ./src/main.py')
                 break
+        elif(option == 4):
+            os.system('cls')
+            print("=========================")
+            print("Select a whay of exiting!")
+            print("=========================")
+            print("| 1. Exit to App        |")
+            print("| 2. Exit the App       |")
+            print("=========================")
+            print('\n')
+            while True:
+                exit_opt = int(input("Select an Option: "))
+                if(exit_opt == 1):
+                    print("ReBooting App...")
+                    time.sleep(2)
+                    os.system('python ./init.py')
+                    break
+                elif(exit_opt == 2):
+                    print("Exiting the App...")
+                    time.sleep(2)
+                    os.system('cls')
+                    exit() 
