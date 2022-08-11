@@ -10,6 +10,9 @@ import wget
 rel_url = "https://galionsec.github.io/is-usb-safe/download/releases/?v=latest"
 
 def start():
+
+    os.system('cls')
+
     print("Welcome to IsUsbSafe Restore Tool!")
     print("==================================")
     time.sleep(0.3)

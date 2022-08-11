@@ -19,6 +19,7 @@ import datetime
 from extras import errors
 from extras import restore
 from extras import logger
+from extras.loaders import loaders
 
 #Config File Search
 def config():
@@ -38,7 +39,7 @@ def config():
             go_to_restore = input('You want to execute Restorer.py right now? [y/n]: ')
             if(go_to_restore == "y"):
                 os.system('cls')
-                restore.start()
+                loaders.loading_text(name="recov_loader", secs=5, once_complete=restore.start())
             elif(go_to_restore == "n"):
                 os.system('cls')
                 print('Thanks for using Is-Usb-Safe!')
@@ -81,8 +82,6 @@ def config():
         os.system('python ./src/main.py')
         
 def start_process():
-    os.system('cls')
-    time.sleep(1)
     while True:
         print("You wan't to gran't access to IsUsbSafe Admin Privileges?")
         admin_priv_opt = input("[YES/NO]: ")
@@ -92,6 +91,7 @@ def start_process():
             print('main.py upgraded the Priviledge')
             time.sleep(1)
             logger.update_log(path='./src/logs/', logger_file_name='log.txt', encode='', content="User Priviledge's were Garanted!")
+            logger.update_log(path='./src/logs/', logger_file_name='log.txt', encode='', content="Started the USB Wait Proccess!")
             is_usb_connected = False
             while is_usb_connected == False:
                 print("Insert a USB or External Disk to Start the Process -")
@@ -118,40 +118,7 @@ def start_process():
             time.sleep(0.5)
             os.system('cls')
             time.sleep(0.1)
-            for i in range(5):
-                print("L")
-                time.sleep(0.5)
-                os.system('cls')
-                print("LO")
-                time.sleep(0.5)
-                os.system('cls')
-                print("LOA")
-                time.sleep(0.5)
-                os.system('cls')
-                print("LOAD")
-                time.sleep(0.5)
-                os.system('cls')
-                print("LOADI")
-                time.sleep(0.5)
-                os.system('cls')
-                print("LOADIN")
-                time.sleep(0.5)
-                os.system('cls')
-                print("LOADING")
-                time.sleep(0.3)
-                os.system('cls')
-                print("LOADING.")
-                time.sleep(0.3)
-                os.system('cls')
-                print("LOADING..")
-                time.sleep(0.5)
-                print("LOADING...")
-                i = i + 1
-                time.sleep(0.5)
-                os.system('cls')
-                if(i == 5):
-                    restore.start()
-                    break
+            loaders.loading_text(name="lof", secs=5, once_complete=restore.start())
         else:
             os.system('cls')
 
