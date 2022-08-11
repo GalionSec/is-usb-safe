@@ -7,6 +7,8 @@
     <title>IsUsbSafe - GalionSec</title>
     <!-- FlowWind CDN -->
     <link rel="stylesheet" href="https://unpkg.com/flowbite@1.5.2/dist/flowbite.min.css" />
+    <!-- TailwindCSS CDN -->
+    <script src="https://cdn.tailwindcss.com/"></script>
     <!-- Font -->
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300&display=swap');
@@ -32,16 +34,16 @@
         <div class="hidden w-full md:block md:w-auto" id="navbar-default">
           <ul class="flex flex-col p-4 mt-4 bg-gray-50 rounded-lg border border-gray-100 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
             <li>
-              <a href="./" class="block text-lg py-2 pr-4 pl-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white" aria-current="page">Home</a>
+              <a href="../" class="block text-lg py-2 pr-4 pl-3 text-gray-700 bg-blue-700 rounded md:bg-transparent md:hover:text-blue-700  md:p-0 dark:text-white" aria-current="page">Home</a>
             </li>
             <li>
-              <a href="./about/" class="block text-lg py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">About</a>
+              <a href="./" class="block text-lg py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">About</a>
             </li>
             <li>
-              <a href="./downloads/" class="block text-lg py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Downloads</a>
+              <a href="../downloads/" class="block text-lg py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Downloads</a>
             </li>
             <li>
-              <a href="./pricing/" class="block text-lg py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Pricing</a>
+              <a href="../pricing/" class="block text-lg py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Pricing</a>
             </li>
             <li>
               <a href="https://github.com/GalionSec/is-usb-safe" class="block text-lg py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"><i class="fa-brands fa-github text-xl"></i></a>
@@ -51,10 +53,40 @@
       </div>
     </nav>
 
+    <main class="container">
+        <h1 style="margin-left:5px;" class="my-2 mx-6 underline text-5xl font-mono">¿Is Your Usb Safe?</h1>
+        <div name="info-box-1" class="flex">
+            <img src="../src/static/svg/undraw_questions_re_1fy7.svg" alt="isusbsafe-undraw-question-svg" class="w-80 mx-40 my-32">
+            <p class="my-32 text-3xl text-black">
+                ¿It's Safe to Use?
+                <br>
+                ¿Generates any Malware or Evil File?
+                <br>
+                <br>
+                Obviously not!, IsUsbSafe is a tool that has the task of Scanning and Protecting your USB Flash and External HardDrives
+                all for free! Our objective is to avoid certain types of common Malware Infected Devices!
+            </p>
+        </div>
+        <div name="info-box-2" class="flex ml-32">
+            <p style="" class="my-32 text-3xl text-black">
+                When you start the PythonScript/App automatically send's all your computer addresses to a AutoGen Proxy!
+                <br>
+                and start's the Scanning process, by seeing all the <span class="text-blue-800">hidden</span> files, all the <span class="text-blue-800">.dll</span>
+                files inside, all the <span class="text-blue-800">.py</span>, <span class="text-blue-800">.c</span>, <span class="text-blue-800">.cpp</span>, <span class="text-blue-800">.etc...</span>
+                <br>
+                And determines by reading the lines of every file and by an complex algorithm if the file is infected and try's to delete them or put them in quarantine
+                <br>
+                to then removing them.
+            </p>
+            <img style="margin-right:-5px; padding-right:10;" src="../src/static/svg/undraw_hacker_mind_-6-y85.svg" alt="isusbsafe-undraw-hacker-svg" class="flex w-80 mr-28 float-right right-0">
+
+        </div>
+    </main>
+
 
 
     <!-- Toast Notification -->
-    <div style="bottom:10px; left:5px; background-color:#1e293b; border-color:#1f2e44; color:white;" id="toast-default" class="bottom-0 left-0 absolute flex items-center p-4 w-full max-w-xs text-gray-500 bg-white rounded-lg shadow dark:text-gray-400 dark:bg-gray-800 shadow-xl border-solid border-2" role="alert">
+    <div style="bottom:10px; left:5px; background-color:#1e293b; border-color:#1f2e44; color:white; position:fixed;" id="toast-default" class="bottom-0 left-0 absolute flex items-center p-4 w-full max-w-xs text-gray-500 bg-white rounded-lg shadow dark:text-gray-400 dark:bg-gray-800 shadow-xl border-solid border-2" role="alert">
         <div class="inline-flex flex-shrink-0 justify-center items-center w-8 h-8 text-blue-500 bg-blue-100 rounded-lg dark:bg-blue-800 dark:text-blue-200">
             <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M12.316 3.051a1 1 0 01.633 1.265l-4 12a1 1 0 11-1.898-.632l4-12a1 1 0 011.265-.633zM5.707 6.293a1 1 0 010 1.414L3.414 10l2.293 2.293a1 1 0 11-1.414 1.414l-3-3a1 1 0 010-1.414l3-3a1 1 0 011.414 0zm8.586 0a1 1 0 011.414 0l3 3a1 1 0 010 1.414l-3 3a1 1 0 11-1.414-1.414L16.586 10l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
             <span class="sr-only">Code Icon</span>
