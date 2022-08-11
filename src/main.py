@@ -68,9 +68,12 @@ def config():
         file_names = ['general.conf', 'log.txt', 'verif.ius', 'main.ius']
         with open(os.path.join(conf_path, file_names[0]), 'w') as file:
             pass
-        with open(os.path.join(logs_path, file_names[1]), 'w') as log_file:
-            log_file.write(basic_log_structure + "Config Folder Created!" + '\n' + basic_log_structure + "Custom Folder Created!" + '\n' + basic_log_structure + "Logs Folder Created!")
-            log_file.close()
+        logger.create_log_file('./src/logs/', 'log.txt', encode='utf8', content='Created Log Folder')
+        logger.update_log('./src/logs/', 'log.txt', encode='utf8', content='Created Log File')
+        logger.update_log('./src/logs/', 'log.txt', encode='utf8', content='Created Config Folder')
+        logger.update_log('./src/logs/', 'log.txt', encode='utf8', content='Created Config Files')
+        logger.update_log('./src/logs/', 'log.txt', encode='utf8', content='Created Custom Folder')
+        logger.update_log('./src/logs/', 'log.txt', encode='utf8', content='Created Custom Files')
         with open(os.path.join(customs_path, file_names[2]), 'w') as verif_file:
             verif_file.write(verif_data_structure)
             verif_file.close()
@@ -93,10 +96,10 @@ def start_process():
                 logger.update_log(path='./src/logs/', logger_file_name='log.txt', encode='utf8', content='Cache Folder Created!')
                 pass
             os.chmod('./src/main.py', 1411)
-            print('main.py upgraded the Priviledge')
+            print('main.py upgraded the Privilege')
             time.sleep(1)
-            logger.update_log(path='./src/logs/', logger_file_name='log.txt', encode='', content="User Priviledge's were Garanted!")
-            logger.update_log(path='./src/logs/', logger_file_name='log.txt', encode='', content="Started the USB Wait Proccess!")
+            logger.update_log(path='./src/logs/', logger_file_name='log.txt', encode='', content="User privilege's were Granted!")
+            logger.update_log(path='./src/logs/', logger_file_name='log.txt', encode='', content="Started the USB Wait Process!")
             is_usb_connected = False
             while is_usb_connected == False:
                 print("Insert a USB or External Disk to Start the Process -")
@@ -111,6 +114,11 @@ def start_process():
                 print("Insert a USB or External Disk to Start the Process /")
                 time.sleep(0.3)
                 os.system('cls')
+                
+                if(print('Hello World')):
+                    print('Nigga')
+                
+                
         elif(admin_priv_opt == "n"):
             print("Privileges are needed to use the tool!")
             print("Error Code: " + errors.error_list[1])
