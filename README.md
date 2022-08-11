@@ -30,5 +30,5 @@ Here we leave a list of Features that the program has!
 - Integrated Error Generator (For Dev Purposes)
 - An Code Injector (Only for PRO Mode)
 - Proxy and VPN Capacitie's (Read <a href="#gotodocs">Docs</a>)
-- BetaTester Feautres (Only Avaliable if you are in the [https://galionsec.github.io/betatesterprogram/](Beta Testers) Program)
+- BetaTester Feautres (Only Avaliable if you are in the <a href="#gotodocs">Beta Testing</a> Program)
 
