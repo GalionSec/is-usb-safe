@@ -3,3 +3,4 @@ src/config/*
 src/logs/*
 src/custom/*
 /.vscode/*
+src/cache/*

@@ -64,8 +64,7 @@ def config():
         """
 
         verif_data_structure = "<--GALION CONNECTION SERVERS-->" + '\n' + 'req_key: "REQUEST_KEY"' + '\n' + "<--GALION CONNECTION SERVERS-->"
-        basic_log_structure = "[" + str(datetime.datetime.now().year) + " - " + str(datetime.datetime.now().month) + " - " + str(datetime.datetime.now().day) + "|| " + str(datetime.datetime.now().hour) + ":" + str(datetime.datetime.now().minute) + ":" + str(datetime.datetime.now().second) + "] - "
-
+        
         file_names = ['general.conf', 'log.txt', 'verif.ius', 'main.ius']
         with open(os.path.join(conf_path, file_names[0]), 'w') as file:
             pass
@@ -87,6 +86,12 @@ def start_process():
         admin_priv_opt = input("[YES/NO]: ")
 
         if(admin_priv_opt == "y"):
+            if(os.path.exists('./src/cache')):
+                pass
+            else:
+                os.mkdir('./src/cache')
+                logger.update_log(path='./src/logs/', logger_file_name='log.txt', encode='utf8', content='Cache Folder Created!')
+                pass
             os.chmod('./src/main.py', 1411)
             print('main.py upgraded the Priviledge')
             time.sleep(1)
